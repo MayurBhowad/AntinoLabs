@@ -1,0 +1,61 @@
+
+
+1. User must sign up
+2. User must login to use api
+3. Only admin can add products, update products or delete products
+4. Admin can add user or new admin
+
+* All routes are private, user must logged in
+
+API end points:
+
+login route: POST /api/users/login
+                x-www-form-urlencoded
+                    -email
+                    -password
+
+//Admin
+1.  POST /api/admins/addadmin (must logged in as admin)!
+    x-www-form-urlencoded
+        -name
+        -email
+        -role           #('user' default)
+        -password
+        -password2
+
+
+//user
+1. POST /api/users/register
+    x-www-form-urlencoded
+        -name
+        -email
+        -password
+        -password2
+
+2. POST /api/users/login
+    x-www-form-urlencoded
+        -email
+        -password
+
+
+//Products
+1. GET /api/products/allproducts (must logged in)!
+2. GET /api/products/:productid (must logged in)!
+
+3. POST /api/products/addproduct (must logged in as admin)!
+    x-www-form-urlencoded
+        -product_name
+        -product_price
+        -product_description
+        -product_stock
+        
+4. POST /api/products/updateproduct/:productid (must logged in as admin)!
+    x-www-form-urlencoded
+        -product_name
+        -product_price
+        -product_description
+        -product_stock
+
+5. DELETE /api/products/deleteproduct/:productid (must logged in as admin)!
+
+
